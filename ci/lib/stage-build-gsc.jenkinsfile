@@ -4,6 +4,8 @@ stage('Build Workloads') {
         docker system prune -af
         openssl genrsa -3 -out enclave-key.pem 3072
         cp -f config.yaml.template config.yaml
+        sed -i -E 's/Branch:[ ]+"master"/Branch:     "v1.8"/g' config.yaml
+
     '''
 
     // Build Bash Workload
@@ -130,4 +132,15 @@ stage('Build Workloads') {
             '''
         } catch (Exception e) {}
     }
+
+    // Build OVMs Workload
+    if (env.distro_ver == "ubuntu:22.04") {
+    try {
+        sh '''
+            ./verifier/helper.sh "done" "y" "/keys/encryption_key"
+            ./Examples/ovms/helper.sh
+        '''
+    } catch (Exception e) {}
+}
+
 }
