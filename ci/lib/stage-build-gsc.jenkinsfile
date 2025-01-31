@@ -138,7 +138,6 @@ stage('Build Workloads') {
     try {
         sh '''
            bash verifier/helper.sh "not" "y" "/keys/encryption_key"
-           bash Examples/pytorch/base_image_helper/helper.sh
            docker build --tag ovms-bash --file  Examples/ovms/ovms-gsc.dockerfile .
            ./gsc build --insecure-args ovms-bash  Examples/ovms/ovms.manifest
            ./gsc sign-image ovms-bash enclave-key.pem
