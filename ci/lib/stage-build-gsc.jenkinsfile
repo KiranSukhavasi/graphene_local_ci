@@ -123,7 +123,7 @@ stage('Build Workloads') {
     if (env.distro_ver == "ubuntu:22.04") {
         try {
             sh '''
-                ./verifier/helper.sh "done" "y" "/keys/encryption_key"
+                ./verifier/helper.sh "not" "y" "/keys/encryption_key"
 
                 ./Examples/pytorch/base_image_helper/helper.sh
                 ./gsc build pytorch-encrypted Examples/pytorch/pytorch.manifest
@@ -137,7 +137,7 @@ stage('Build Workloads') {
     if (env.distro_ver == "ubuntu:22.04") {
     try {
         sh '''
-            ./verifier/helper.sh "done" "y" "/keys/encryption_key"
+            ./verifier/helper.sh "not" "y" "/keys/encryption_key"
 
            ./Examples/pytorch/base_image_helper/helper.sh
            //./gsc build pytorch-encrypted Examples/pytorch/pytorch.manifest
