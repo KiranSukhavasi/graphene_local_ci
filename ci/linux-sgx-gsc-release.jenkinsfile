@@ -33,8 +33,8 @@ node(node_label) {
     
         dir ("gsc_dev_repo") {
             sh 'cp -rf $WORKSPACE/test_workloads.py .'
-            sh 'cp -rf $WORKSPACE/gsc/keys/* keys'
-            sh 'cp -rf $WORKSPACE/gsc/test/* test'
+            sh 'cp -rf $WORKSPACE/gsc/keys keys'
+            sh 'cp -rf $WORKSPACE/gsc/test test'
             sh 'cp -rf $WORKSPACE/gsc/test/pytorch Examples'
             sh 'cp -rf $WORKSPACE/gsc/test/ovms Examples'
             sh 'cp -rf $WORKSPACE/gsc/verifier .'
