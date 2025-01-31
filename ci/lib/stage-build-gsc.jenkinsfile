@@ -139,14 +139,12 @@ stage('Build Workloads') {
         sh '''
             bash verifier/helper.sh "not" "y" "/keys/encryption_key"
 
-           ./Examples/pytorch/base_image_helper/helper.sh
-           //./gsc build pytorch-encrypted Examples/pytorch/pytorch.manifest
-           //./gsc sign-image pytorch-encrypted enclave-key.pem
-           //./gsc info-image gsc-pytorch-encrypted | tee gsc_pytorch_image_info
-
+           bash Examples/pytorch/base_image_helper/helper.sh
            bash Examples/ovms/helper.sh
         '''
-    } catch (Exception e) {}
+    } catch (Exception e) {
+        sh 'Exception in OVM'
+    }
 }
 
 }
