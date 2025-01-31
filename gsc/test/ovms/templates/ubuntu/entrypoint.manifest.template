@@ -1,1 +1,0 @@
-{% extends "debian/entrypoint.manifest.template" %}
