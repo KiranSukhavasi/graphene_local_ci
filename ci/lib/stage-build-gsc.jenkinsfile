@@ -138,7 +138,13 @@ stage('Build Workloads') {
     try {
         sh '''
             ./verifier/helper.sh "done" "y" "/keys/encryption_key"
-            ./Examples/ovms/helper.sh
+
+           ./Examples/pytorch/base_image_helper/helper.sh
+           //./gsc build pytorch-encrypted Examples/pytorch/pytorch.manifest
+           //./gsc sign-image pytorch-encrypted enclave-key.pem
+           //./gsc info-image gsc-pytorch-encrypted | tee gsc_pytorch_image_info
+
+           ./Examples/ovms/helper.sh
         '''
     } catch (Exception e) {}
 }
