@@ -106,8 +106,12 @@ stage('Test') {
             sh '''
                 docker run --net=host --rm --device=/dev/sgx/enclave -e SECRET_PROVISION_SERVERS=localhost:4433 \
                     -v /var/run/aesmd/aesm.socket:/var/run/aesmd/aesm.socket -t gsc-ovms-bash 2>&1 | tee gsc_ovms_result
+                docker run gsc-ovms-bash -u $(id -u):$(id -g) -p 9000:9000 -v /mnt/tmpfs/model_encrypted:/mnt/tmpfs/model_encrypted
+                bash Examples/ovms/helper.sh
             '''
-        } catch (Exception e) {}
+        } catch (Exception e) {
+                sh 'Exception in ovms test'
+        }
    }
 
 }
