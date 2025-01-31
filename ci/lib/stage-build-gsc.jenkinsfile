@@ -123,9 +123,9 @@ stage('Build Workloads') {
     if (env.distro_ver == "ubuntu:22.04") {
         try {
             sh '''
-                ./verifier/helper.sh "not" "y" "/keys/encryption_key"
+                bash verifier/helper.sh "not" "y" "/keys/encryption_key"
 
-                ./Examples/pytorch/base_image_helper/helper.sh
+                bash Examples/pytorch/base_image_helper/helper.sh
                 ./gsc build pytorch-encrypted Examples/pytorch/pytorch.manifest
                 ./gsc sign-image pytorch-encrypted enclave-key.pem
                 ./gsc info-image gsc-pytorch-encrypted | tee gsc_pytorch_image_info
@@ -137,14 +137,14 @@ stage('Build Workloads') {
     if (env.distro_ver == "ubuntu:22.04") {
     try {
         sh '''
-            ./verifier/helper.sh "not" "y" "/keys/encryption_key"
+            bash verifier/helper.sh "not" "y" "/keys/encryption_key"
 
            ./Examples/pytorch/base_image_helper/helper.sh
            //./gsc build pytorch-encrypted Examples/pytorch/pytorch.manifest
            //./gsc sign-image pytorch-encrypted enclave-key.pem
            //./gsc info-image gsc-pytorch-encrypted | tee gsc_pytorch_image_info
 
-           ./Examples/ovms/helper.sh
+           bash Examples/ovms/helper.sh
         '''
     } catch (Exception e) {}
 }
