@@ -144,7 +144,9 @@ stage('Build Workloads') {
            ./gsc info-image gsc-ovms-bash | tee gsc_ovms_image_info
         '''
     } catch (Exception e) {
-        echo 'Exception in OVM'
+         sh '''
+            echo 'Exception in OVM build'
+        '''
     }
 }
 
