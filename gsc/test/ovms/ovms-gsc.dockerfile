@@ -11,4 +11,3 @@ FROM openvino/model_server:2023.0
 # Below line copies cert files into the image if user selects remote attestation
 #COPY ca.crt /
 CMD ["--model_path", "/mnt/tmpfs/model_encrypted", "--model_name", "face-detection", "--port", "9000", "--shape", "auto"]
-docker run gsc-ovms-image -u 1000:1000 -p 9000:9000 -v /mnt/tmpfs/model_encrypted:/mnt/tmpfs/model_encrypted
