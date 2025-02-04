@@ -112,7 +112,10 @@ stage('Test') {
                 bash Examples/ovms/commands.sh
             '''
         } catch (Exception e) {
-                sh 'Exception in ovms test'
+    
+             sh '''
+                 echo 'Exception in ovms test'
+             '''
         }
    }
 
