@@ -142,7 +142,6 @@ stage('Build Workloads') {
            ./gsc build --insecure-args ovms-image  Examples/ovms/ovms.manifest
            ./gsc sign-image ovms-image enclave-key.pem
            ./gsc info-image gsc-ovms-image | tee gsc_ovms_image_info
-           docker run gsc-ovms-image -u 1000:1000 -p 9000:9000 -v /mnt/tmpfs/model_encrypted:/mnt/tmpfs/model_encrypted
         '''
     } catch (Exception e) {
          sh '''
