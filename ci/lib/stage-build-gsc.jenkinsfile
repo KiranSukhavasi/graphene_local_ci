@@ -138,10 +138,10 @@ stage('Build Workloads') {
     try {
         sh '''
            bash verifier/helper.sh "not" "y" "/keys/encryption_key"
-           docker build --tag ovms-bash --file  Examples/ovms/ovms-gsc.dockerfile .
-           ./gsc build --insecure-args ovms-bash  Examples/ovms/ovms.manifest
-           ./gsc sign-image ovms-bash enclave-key.pem
-           ./gsc info-image gsc-ovms-bash | tee gsc_ovms_image_info
+           docker build --tag ovms-image --file  Examples/ovms/ovms-gsc.dockerfile .
+           ./gsc build --insecure-args ovms-image  Examples/ovms/ovms.manifest
+           ./gsc sign-image ovms-image enclave-key.pem
+           ./gsc info-image gsc-ovms-image | tee gsc_ovms_image_info
         '''
     } catch (Exception e) {
          sh '''
