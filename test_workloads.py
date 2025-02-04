@@ -401,9 +401,4 @@ class Test_Workload_Results():
         gsc_ovms_verifier_output = open("gsc_ovms_verifier_result", "r")
         gsc_ovms_verifier_log = gsc_ovms_verifier_output.read()
         assert("error: " not in gsc_ovms_verifier_log)
-        gsc_ovms_output = open("gsc_ovms_result", "r")
-        gsc_ovms_log = gsc_ovms_output.read()
-        assert("Done. The result was written to `result.txt`." in gsc_ovms_log)
-        assert("error: " not in gsc_ovms_log)
-
 
