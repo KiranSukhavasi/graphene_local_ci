@@ -402,3 +402,5 @@ class Test_Workload_Results():
         gsc_ovms_verifier_log = gsc_ovms_verifier_output.read()
         assert("error: " not in gsc_ovms_verifier_log)
 
+        assert "SUCCESS" in open("Examples/ovms/result.txt", "r")
+        assert("error: " not in gsc_ovms_verifier_log)

@@ -89,7 +89,6 @@ stage('Test') {
         } catch (Exception e) {}
    }
 
-//ovms docker run
    if (env.distro_ver == "ubuntu:22.04") {
         try {
             sh '''

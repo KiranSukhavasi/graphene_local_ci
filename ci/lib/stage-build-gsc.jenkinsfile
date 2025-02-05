@@ -145,7 +145,7 @@ stage('Build Workloads') {
         '''
     } catch (Exception e) {
          sh '''
-            echo 'Exception in OVM build'
+            echo 'Exception during OVM build'
         '''
     }
 }

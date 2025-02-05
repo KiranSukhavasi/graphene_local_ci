@@ -9,4 +9,14 @@ pip install --upgrade pip
 pip install -r  Examples/ovms/client_requirements.txt
 pip install "numpy<2.0"
 pip3 install opencv-python
-python3  Examples/ovms/face_detection.py --batch_size 1 --width 600 --height 400 --input_images_dir  Examples/ovms/images --output_dir  Examples/ovms/results --grpc_port 9000
+python3 Examples/ovms/face_detection.py --batch_size 1 --width 600 --height 400 --input_images_dir  Examples/ovms/images --output_dir  Examples/ovms/results --grpc_port 9000
+file_to_check="Examples/ovms/results/1_0.jpg"
+output_file="Examples/ovms/result.txt"
+if [ -f "$file_to_check" ]; then
+    echo "SUCCESS : File exists." > "$output_file"
+else
+    echo "ERROR : File does not exist." > "$output_file"
+fi
+
+
+
