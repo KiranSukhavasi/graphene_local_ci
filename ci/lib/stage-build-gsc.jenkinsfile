@@ -135,9 +135,8 @@ stage('Build Workloads') {
     if (env.distro_ver == "ubuntu:22.04") {
     try {
         sh '''
-           bash Examples/ovms/ovms_helper.sh"
            bash verifier/helper.sh "not" "y" "/keys/encryption_key" "Examples/ovms"
-           docker build --tag ovms-image --file Examples/ovms/ovms-gsc.dockerfile Examples/ovms/
+           bash Examples/ovms/ovms_helper.sh
            ./gsc build ovms-image Examples/ovms/ovms.manifest
            ./gsc sign-image ovms-image enclave-key.pem
            ./gsc info-image gsc-ovms-image | tee gsc_ovms_image_info

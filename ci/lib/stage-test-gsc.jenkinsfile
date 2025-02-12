@@ -102,6 +102,7 @@ stage('Test') {
                 -v /var/run/aesmd/aesm.socket:/var/run/aesmd/aesm.socket --net=host --rm --device=/dev/sgx/enclave \
                 -e SECRET_PROVISION_SERVERS=localhost:4433 \
                 -dt gsc-ovms-image 2>&1 | tee gsc_ovms_result
+                sleep 60
                 bash Examples/ovms/commands.sh
             '''
         } catch (Exception e) {
