@@ -397,6 +397,5 @@ class Test_Workload_Results():
     def test_gsc_ovms_workload(self):
         gsc_ovms_verifier_output = open("gsc_ovms_verifier_result", "r")
         gsc_ovms_verifier_log = gsc_ovms_verifier_output.read()
-        assert "SUCCESS" in open("Examples/ovms/result.txt", "r")
-        assert("error: " not in gsc_ovms_verifier_log)
-
+        assert("error: " not in gsc_ovms_verifier_log)        
+        assert "SUCCESS" in open("Examples/ovms/ovms_result.txt", "r")
