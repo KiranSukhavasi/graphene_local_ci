@@ -9,5 +9,5 @@
 FROM openvino/model_server:2024.3
 
 # Below line copies cert files into the image if user selects remote attestation
-#COPY ca.crt /
+COPY ca.crt /
 CMD ["--model_path", "/mnt/tmpfs/model_encrypted", "--model_name", "face-detection", "--port", "9000", "--shape", "auto"]
