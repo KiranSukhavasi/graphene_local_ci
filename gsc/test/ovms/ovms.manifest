@@ -30,4 +30,4 @@ loader.env.SECRET_PROVISION_SERVERS = { passthrough = true }
 loader.env.SECRET_PROVISION_CONSTRUCTOR = "1"
 loader.env.SECRET_PROVISION_CA_CHAIN_PATH = "/ca.crt"
 loader.env.SECRET_PROVISION_SET_KEY = "default"
-
+fs.insecure__keys.default = "f9bc253ac8a50e60f5d7335693056697"
