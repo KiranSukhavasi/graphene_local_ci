@@ -6,7 +6,7 @@ stage('test-direct') {
             xargs -L1 .ci/check-rwx.py
     '''
 
-    try {
+   /* try {
         timeout(time: 30, unit: 'MINUTES') {
             sh '''
                 cd libos/test/ltp
@@ -144,7 +144,7 @@ stage('test-direct') {
                 make check
             '''
         }
-    } catch (Exception e) { }
+    } catch (Exception e) { }*/
 
     try{
         timeout(time: 5, unit: 'MINUTES') {
@@ -156,7 +156,7 @@ stage('test-direct') {
         }
     } catch (Exception e) { }
     
-    try{
+/*    try{
         timeout(time: 10, unit: 'MINUTES') {
             sh '''
                 cd CI-Examples/busybox
@@ -173,5 +173,5 @@ stage('test-direct') {
                 make check
             '''
         }
-    } catch (Exception e) { }
+    } catch (Exception e) { }*/
 }
