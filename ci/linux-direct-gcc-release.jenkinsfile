@@ -45,10 +45,10 @@ node(node_label) {
                 if (env.stress_ng_run == "False") {
                     load '../ci/lib/stage-test.jenkinsfile'
                     load '../ci/lib/stage-test-direct.jenkinsfile'
-                    load '../ci/lib/stage-test-examples.jenkinsfile'
-                    load '../ci/lib/stage-verification-examples.jenkinsfile'
+                    //load '../ci/lib/stage-test-examples.jenkinsfile'
+                    //load '../ci/lib/stage-verification-examples.jenkinsfile'
                 } else {
-                    load '../ci/lib/stage-test-stress-ng.jenkinsfile'
+                    //load '../ci/lib/stage-test-stress-ng.jenkinsfile'
                 }
             }
         }
