@@ -18,14 +18,14 @@ stage('test-direct') {
                 cd libos/test/ltp
                 python3 -m pytest -v  --junit-xml=ltp.xml
             '''
-            /*
-            sh '''
-                cd libos/shim/test/ltp
-                export CFG=ltp-sudo-syscalls.cfg
-                export LTPSCENARIO=$PWD/install/runtest/syscalls-sudo
-                make -f Makefile.LTP ltp_results_2.xml LTPCFG=$CFG LTPTESTFILE=$LTPSCENARIO
-            '''
-            */
+            ////*
+            ///sh '''
+                ///cd libos/shim/test/ltp
+                ///export CFG=ltp-sudo-syscalls.cfg
+                ///export LTPSCENARIO=$PWD/install/runtest/syscalls-sudo
+                ///make -f Makefile.LTP ltp_results_2.xml LTPCFG=$CFG LTPTESTFILE=$LTPSCENARIO
+            ///'''
+            ///*/
         }
     } catch (Exception e) {
     } finally {
