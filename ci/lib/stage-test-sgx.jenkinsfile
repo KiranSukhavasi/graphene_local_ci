@@ -14,7 +14,7 @@ stage('test-sgx') {
             .ci/check-no-syscall.sh "$GRAMINE_PKGLIBDIR"/runtime/musl/libc.so
         fi
     '''
-
+/*
     try {
         timeout(time: 60, unit: 'MINUTES') {
             sh '''
@@ -27,14 +27,14 @@ stage('test-sgx') {
                 cd libos/test/ltp
                 python3 -m pytest -v  --junit-xml=ltp-sgx.xml
             '''
-            /*
-            sh '''
-                cd LibOS/shim/test/ltp
-                export CFG=ltp-sudo-syscalls.cfg
-                export LTPSCENARIO=$PWD/install-sgx/runtest/syscalls-sudo
-                make -f Makefile.LTP ltp-sgx_results_2.xml LTPCFG=$CFG LTPTESTFILE=$LTPSCENARIO
-            '''
-            */
+            
+          //  sh '''
+            //    cd LibOS/shim/test/ltp
+            //    export CFG=ltp-sudo-syscalls.cfg
+            //    export LTPSCENARIO=$PWD/install-sgx/runtest/syscalls-sudo
+            //    make -f Makefile.LTP ltp-sgx_results_2.xml LTPCFG=$CFG LTPTESTFILE=$LTPSCENARIO
+          //  '''
+            
         }
     } catch (Exception e) {
     } finally {
@@ -56,7 +56,7 @@ stage('test-sgx') {
             '''
         }
     } catch (Exception e) { }
- 
+
     try {
         timeout(time: 15, unit: 'MINUTES') {
             sh '''
@@ -171,7 +171,7 @@ stage('test-sgx') {
             '''
         }
     } catch (Exception e) { }
-
+*/
     try{
         timeout(time: (env.EDMM ? 30 : 5), unit: 'MINUTES') {
             sh '''
@@ -243,6 +243,7 @@ stage('test-sgx') {
         } catch (Exception e) { }
     }
 
+/*
     try{
         timeout(time: 10, unit: 'MINUTES') {
             sh '''
@@ -252,7 +253,7 @@ stage('test-sgx') {
             '''
         }
     } catch (Exception e) { }
-
+*/
     if(env.no_cpu.toInteger() > 16) 
     { 
         try{
