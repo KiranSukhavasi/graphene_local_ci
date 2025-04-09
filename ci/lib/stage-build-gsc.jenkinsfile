@@ -234,7 +234,7 @@ stage('Build and Test Workloads') {
                 -e SECRET_PROVISION_SERVERS=localhost:4433 \
                 -dt gsc-ovms-image 2>&1 | tee gsc_ovms_result
 
-                sleep 60
+                sleep 10
 
                 bash test/ovms/commands.sh
             '''
