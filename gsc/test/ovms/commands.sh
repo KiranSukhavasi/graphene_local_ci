@@ -7,7 +7,7 @@ source env/bin/activate
 pip install --upgrade pip
 pip install -r test/ovms/client_requirements.txt
 export no_proxy=intel.com,.intel.com,localhost,127.0.0.1
-python3 test/ovms/face_detection.py --batch_size 1 --width 600 --height 400 --input_images_dir test/ovms/images --output_dir test/ovms/results --grpc_port 9000
+python3 test/ovms/face_detection.py --batch_size 1 --width 600 --height 400 --input_images_dir test/ovms/images --output_dir test/ovms/results --grpc_port 900
 deactivate
 file_to_check="test/ovms/results/1_0.jpg"
 output_file="test/ovms/ovms_result.txt"
